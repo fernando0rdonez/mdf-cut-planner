@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fernando0rdonez.github.io/mdf-cut-planner/sitemap.xml
