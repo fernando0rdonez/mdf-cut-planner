@@ -79,21 +79,26 @@ body {
   color: #fff;
 }
 
-#langSwitch {
-  padding: 6px 12px;
+#langToggle {
+  display: flex;
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  overflow: hidden;
+}
+.lang-btn {
+  padding: 6px 14px;
+  border: none;
   background: transparent;
-  color: var(--text-muted);
+  cursor: pointer;
   font-size: 13px;
   font-weight: 500;
+  color: var(--text-muted);
   text-decoration: none;
-  white-space: nowrap;
-  transition: border-color 0.15s, color 0.15s;
+  transition: background 0.15s, color 0.15s;
 }
-#langSwitch:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+.lang-btn.active {
+  background: var(--accent);
+  color: #fff;
 }
 
 #btnExportPdf {
