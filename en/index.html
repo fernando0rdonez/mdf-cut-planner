@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MDF Cut List Generator</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div id="app">
+
+  <header id="header">
+    <h1 data-i18n="appName">CutList</h1>
+    <input id="projectName" type="text" data-i18n-ph="projectNamePlaceholder" placeholder="Project name…" maxlength="80">
+    <div id="unitToggle">
+      <button data-unit="mm" class="active">mm</button>
+      <button data-unit="cm">cm</button>
+    </div>
+    <button id="btnExportPdf" data-i18n="exportPdf">Export PDF</button>
+  </header>
+
+  <div id="warningBanner"></div>
+
+  <div id="columns">
+    <!-- LEFT PANEL -->
+    <aside id="leftPanel">
+
+      <!-- Sheet Config -->
+      <div class="panel-card" id="sheetConfigCard">
+        <h2 data-i18n="sectionSheet">Sheet</h2>
+        <div id="presetButtons">
+          <button class="preset-btn active" data-preset="1830x2750">1830 × 2750</button>
+          <button class="preset-btn" data-preset="1220x2440">1220 × 2440</button>
+          <button class="preset-btn" data-preset="1530x2440">1530 × 2440</button>
+          <button class="preset-btn" data-preset="custom" data-i18n="presetCustom">Custom</button>
+        </div>
+        <div id="sheetDimensions">
+          <label><span data-i18n="labelWidth">Width</span><input id="sheetW" type="number" min="1" step="1"></label>
+          <span class="sep">×</span>
+          <label><span data-i18n="labelHeight">Height</span><input id="sheetH" type="number" min="1" step="1"></label>
+        </div>
+      </div>
+
+      <!-- Cut List -->
+      <div class="panel-card">
+        <h2 data-i18n="sectionCutList">Cut List</h2>
+        <div id="cutListRows"></div>
+        <button class="add-btn" id="btnAddPiece" data-i18n="btnAddPiece">+ Add Piece</button>
+      </div>
+
+      <!-- Hardware -->
+      <div class="panel-card">
+        <h2 data-i18n="sectionHardware">Hardware</h2>
+        <div id="hardwareRows"></div>
+        <button class="add-btn" id="btnAddHardware" data-i18n="btnAddItem">+ Add Item</button>
+      </div>
+
+    </aside>
+
+    <!-- RIGHT PANEL -->
+    <section id="rightPanel">
+      <div id="nestingSummary">
+        <div class="summary-item"><span class="val" id="sumSheets">—</span><span class="lbl" data-i18n="sumSheetsLabel">Sheets</span></div>
+        <div class="summary-item"><span class="val" id="sumWaste">—</span><span class="lbl" data-i18n="sumWasteLabel">Avg Waste</span></div>
+        <div class="summary-item"><span class="val" id="sumPieces">—</span><span class="lbl" data-i18n="sumPiecesLabel">Pieces</span></div>
+      </div>
+
+      <div id="cutListPanel">
+        <div id="cutListPanelHeader">
+          <h3 data-i18n="cutListPanelTitle">Cut List</h3>
+          <button id="cutListToggleBtn">
+            <span id="cutListToggleLabel" data-i18n="toggleHide">Hide</span>
+            <span class="chevron">▼</span>
+          </button>
+        </div>
+        <div id="cutListTableWrap">
+          <table id="cutListTable">
+            <thead>
+              <tr>
+                <th data-i18n="thNum">#</th>
+                <th data-i18n="thName">Name</th>
+                <th data-i18n="thQty">Qty</th>
+                <th data-i18n="thWidth">Width</th>
+                <th data-i18n="thLength">Length</th>
+                <th data-i18n="thEdgeBanding">Edge Banding</th>
+              </tr>
+            </thead>
+            <tbody id="cutListTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="emptyState">
+        <div class="icon">📐</div>
+        <p data-i18n="emptyStateText">Add pieces to see the sheet layout.</p>
+      </div>
+
+      <div id="sheetCanvases"></div>
+    </section>
+  </div>
+
+</div>
+
+<script>window.ACTIVE_LANG = 'en';</script>
+<script src="../lang/en.js"></script>
+<script src="../app.js"></script>
+</body>
+</html>
