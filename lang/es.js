@@ -95,4 +95,5 @@ window.LANG = {
   pdfSheetTitle: (n, total) => `Lámina ${n} de ${total}`,
   pdfWaste: 'Desperdicio:',
   jspdfError: 'jsPDF no cargado. Verifica tu conexión a internet.',
+  donate: 'Invítame un chocolate',
 };

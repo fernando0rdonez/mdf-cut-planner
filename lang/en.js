@@ -95,4 +95,5 @@ window.LANG = {
   pdfSheetTitle: (n, total) => `Sheet ${n} of ${total}`,
   pdfWaste: 'Waste:',
   jspdfError: 'jsPDF not loaded. Check your internet connection.',
+  donate: 'Buy me a chocolate',
 };

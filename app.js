@@ -740,6 +740,7 @@ document.getElementById('cutListPanelHeader').addEventListener('click', () => {
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 applyLang();
+document.getElementById('donateLabel').textContent = LANG.donate;
 loadState();
 document.getElementById('projectName').value = AppState.projectName;
 update();
